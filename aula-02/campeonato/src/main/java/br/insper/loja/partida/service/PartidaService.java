@@ -69,4 +69,10 @@ public class PartidaService {
         return RetornarPartidaDTO.getRetornarPartidaDTO(partida);
 
     }
+
+    public RetornarPartidaDTO getPartida(Integer id) {
+        Partida partida = partidaRepository.findById(id).get();
+        return RetornarPartidaDTO.getRetornarPartidaDTO(partida);
+    }
+
 }

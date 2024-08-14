@@ -21,6 +21,11 @@ public class PartidaController {
         return partidaService.listarPartidas(mandante);
     }
 
+    @GetMapping("/partida/{id}")
+    public RetornarPartidaDTO getPartida(@PathVariable Integer id) {
+        return partidaService.getPartida(id);
+    }
+
     @PostMapping("/partida")
     @ResponseStatus(HttpStatus.CREATED)
     public RetornarPartidaDTO salvarPartida(@RequestBody SalvarPartidaDTO partida) {
