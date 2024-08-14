@@ -1,6 +1,7 @@
 package br.insper.loja.partida.service;
 
 import br.insper.loja.partida.dto.EditarPartidaDTO;
+import br.insper.loja.partida.exception.PartidaNaoEncontradaException;
 import br.insper.loja.partida.model.Partida;
 import br.insper.loja.partida.repository.PartidaRepository;
 import br.insper.loja.partida.dto.RetornarPartidaDTO;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PartidaService {
@@ -71,8 +73,11 @@ public class PartidaService {
     }
 
     public RetornarPartidaDTO getPartida(Integer id) {
-        Partida partida = partidaRepository.findById(id).get();
-        return RetornarPartidaDTO.getRetornarPartidaDTO(partida);
+        Optional<Partida> partida = partidaRepository.findById(id);
+        if (partida.isPresent()) {
+            return RetornarPartidaDTO.getRetornarPartidaDTO(partida.get());
+        }
+        throw new PartidaNaoEncontradaException("Partida não encontrada");
     }
 
 }

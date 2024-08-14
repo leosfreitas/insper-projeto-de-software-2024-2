@@ -1,9 +1,6 @@
-package br.insper.loja.partida.dto;
-
-import br.insper.loja.partida.model.Partida;
+package br.insper.aposta.aposta;
 
 public class RetornarPartidaDTO {
-    private Integer id;
     private String nomeMandante;
     private String nomeVisitante;
     private Integer placarMandante;
@@ -11,16 +8,6 @@ public class RetornarPartidaDTO {
 
     private String status;
 
-    public static RetornarPartidaDTO getRetornarPartidaDTO(Partida partida) {
-        RetornarPartidaDTO retornarPartidaDTO = new RetornarPartidaDTO();
-        retornarPartidaDTO.setId(partida.getId());
-        retornarPartidaDTO.setNomeMandante(partida.getMandante().getNome());
-        retornarPartidaDTO.setNomeVisitante(partida.getVisitante().getNome());
-        retornarPartidaDTO.setPlacarMandante(partida.getPlacarMandante());
-        retornarPartidaDTO.setPlacarVisitante(partida.getPlacarVisitante());
-        retornarPartidaDTO.setStatus(partida.getStatus());
-        return retornarPartidaDTO;
-    }
 
     public String getNomeMandante() {
         return nomeMandante;
@@ -61,11 +48,4 @@ public class RetornarPartidaDTO {
         this.status = status;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }

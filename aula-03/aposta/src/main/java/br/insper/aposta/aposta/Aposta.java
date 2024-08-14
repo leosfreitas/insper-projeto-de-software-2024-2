@@ -16,8 +16,10 @@ public class Aposta {
     private String id;
     private Integer idPartida;
     private LocalDateTime dataAposta;
-    private String resultado;
+    private String resultado;  // EMPATE, VITORIA_MANDANTE, VITORIA_VISITANTE
     private Double valor;
+
+    private String status; // GANHOU, PERDEU, REALIZADA
 
     public String getId() {
         return id;
