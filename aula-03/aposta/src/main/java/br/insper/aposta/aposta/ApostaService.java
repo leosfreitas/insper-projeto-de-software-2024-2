@@ -26,6 +26,7 @@ public class ApostaService {
             apostaRepository.save(aposta);
         }
 
+
     }
 
     public List<Aposta> listar() {
