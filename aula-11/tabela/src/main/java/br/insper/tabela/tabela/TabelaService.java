@@ -21,8 +21,10 @@ public class TabelaService {
         Map<String, TabelaDTO> tabela = new HashMap<>();
 
         for (RetornarPartidaDTO partida : partidas) {
-            processarTime(tabela, partida.getNomeMandante(), partida.getPlacarMandante(), partida.getPlacarVisitante());
-            processarTime(tabela, partida.getNomeVisitante(), partida.getPlacarVisitante(), partida.getPlacarMandante());
+            if (partida.getStatus().equals("REALIZADA")) {
+                processarTime(tabela, partida.getNomeMandante(), partida.getPlacarMandante(), partida.getPlacarVisitante());
+                processarTime(tabela, partida.getNomeVisitante(), partida.getPlacarVisitante(), partida.getPlacarMandante());
+            }
         }
 
         return new ArrayList<>(tabela.values()).stream()
